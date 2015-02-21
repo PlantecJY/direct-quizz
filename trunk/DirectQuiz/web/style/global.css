@@ -1,0 +1,211 @@
+/* 
+    Document   : global
+    Created on : 18 déc. 2012, 16:11:00
+    Author     : JYP
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* Styles généraux */
+
+html {
+    min-height: 300px;
+}
+
+body, p, legend, label, .input {
+    color:#222;
+    font-family:Verdana,Arial,Sans;
+    font-size:12px;
+    background: #eee;
+    text-align: justify;
+}
+
+#enveloppe {
+    background: #fff;
+    /* centrage */
+    margin:0 auto;
+    width:900px;
+    min-height:800;
+    border-style:solid;
+    border-color: #aaa;
+    border-width:1px;
+    /* ombre décalage h, décalage v, force*/
+    box-shadow: 6px 6px 10px #aaa;
+}
+
+legend {
+    font-weight: bold;
+    color: #0568CD;
+}
+
+h1 {
+    text-shadow:2px 2px 10px white;
+    color: #333399;
+}
+
+#header {   
+    color:#333;
+    background: #1D70B7; /* bleu */
+    border-radius: 4px;
+    border-style:solid;
+    border-color: #aaa;
+    border-width:1px;
+    margin-left:5px;
+    margin-top:5px;
+    margin-right:5px;
+    margin-bottom:15px;
+    padding: 4px 4px 4px 4px;
+    /* ombre décalage h, décalage v, force */
+    box-shadow: 2px 2px 1px #eee;
+    -moz-box-shadow:2px 2px 10px gray;
+    -webkit-box-shadow:2px 2px 10px gray;
+}
+
+.tuto { 
+    position:relative;
+    bottom:-11px;
+    left:10px; 
+}
+
+#footer{
+	font-size:11px;
+	margin-left:5px;
+	margin-top:5px;
+	margin-right:5px;
+	margin-bottom:5px;
+	padding: 4px 4px 4px 4px;
+}
+
+#texteLogo{
+    position:relative;
+    left: 20px;
+    bottom:20px;
+    font: lucida, helvetica, sans-serif;
+    font-size:20px;
+    color: #fff;
+    text-shadow: 2px 2px 1px #888;
+}
+
+#check{
+    float:right;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#imageLogo{
+    margin-left: 5px;
+    margin-top: 5px;
+    /*box-shadow: 2px 2px 1px #888;*/
+}
+
+#texte {
+    background: #fff;
+    margin-left:5px;
+    margin-top:5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    min-height:500px;
+    padding: 4px 4px 4px 4px;
+}
+
+#formJeu {
+    margin-left:5px;
+    margin-top:5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 4px 4px 4px 4px;
+}
+
+p, label {
+    text-align:justify;
+    background: #fff;
+}
+
+a {
+    /*color:#BF1E56;*/
+    color: #9B1844;
+    text-decoration: none; 
+}
+
+
+a:hover {
+    color:#555;
+    text-decoration:none;
+}
+
+.lienDeMenu {
+    /*background-color:#ccc;*/
+    color: #9B1844;
+    text-decoration: none;	
+}
+
+.tutoriel {
+    /*background-color:#ccc;*/
+    color: #9B1844;
+    text-decoration: none;	
+}
+
+#dialog {
+   background-color:#fff; 
+    /* ombre décalage h, décalage v, force */
+    box-shadow: 2px 2px 1px #eee;
+    -moz-box-shadow:2px 2px 10px gray;
+    -webkit-box-shadow:2px 2px 10px gray;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    border: 1px solid #aaaaaa; 
+    background: #1D70B7;
+    color: #fff;
+    font-weight: bold;
+}
+
+.boiteDeMenu {
+    background-color:fff;
+	opacity:1;
+	border-radius: 4px;
+	border-style:solid;
+	border-color: #aaa;
+	border-width:1px;
+	margin-left:5px;
+	margin-top:5px;
+	margin-right:0px;
+	margin-bottom:5px;
+	padding: 4px 4px 4px 4px;
+    box-shadow:1px 1px 2px #ccc;
+}
+
+.infoConnexion {
+     margin-top: 7px;
+     margin-left: 5px;
+}
+
+#imageAccueil {
+    box-shadow:2px 2px 2px #555,
+    -1px -1px 2px #ccc;    
+}
+
+P.align {
+    text-align: center;
+}
+
+#imageLogo{
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.important{
+    color:blue;
+}
+
+.juste{
+    color:green;
+}
+
+.faux{
+    color:red; 
+}
+
+ul.sansPuces {
+    list-style: none;
+}

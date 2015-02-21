@@ -1,0 +1,40 @@
+/* 
+    Document   : tables
+    Created on : 13 déc. 2012, 16:51:19
+    Author     : JYP
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+table.defaut
+{
+	border-collapse:collapse;
+       	border-width : 1px;
+	margin: 20 0;
+	align:left
+}
+table.defaut td, table.defaut th {
+    	border-style : solid;
+	border-color : #DDD;
+        border-width : 1px;
+	padding: 4px;
+	align:left
+}
+table.defaut .header {
+    background:none;
+}
+
+td.gris {
+    background-color: #DDD; 
+    align:center;
+}
+td.OK {
+    background-color: #568203; 
+    align:center;
+}
+td.NOK {
+    background-color: #C60800;
+    align:center;
+}
+
+

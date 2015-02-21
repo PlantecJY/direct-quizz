@@ -1,0 +1,25 @@
+/* 
+    Document   : sequence
+    Created on : 18 déc. 2012, 22:24:03
+    Author     : JYP
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.listeSansPuces li {
+    list-style-type:none; 
+}
+
+#uneSequence
+{
+    border-style: solid;
+    border-width : 1px;
+    border-color: #DDD;
+}
+.themeQuestion {
+    font-weight: bold;
+}
