@@ -1,0 +1,44 @@
+/* 
+    Document   : forms.css
+    Created on : 13 déc. 2012, 16:43:11
+    Author     : JYP
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+/* Formulaires */
+
+form label {
+    float: left;
+    width: 230px;
+    margin: 3px 0px 0px 0px;
+}
+
+form label.participation {
+    float: left;
+    width: 280px;
+    margin: 3px 0px 0px 0px;
+}
+
+form input {
+    margin: 3px 3px 0px 0px;
+    border: 1px #999 solid;
+}
+
+form .requis {
+    color: #c00;
+}
+
+form .succes {
+    color: #a00;
+}
+
+form .erreur {
+    color: #F40000;
+    font-style: italic;
+}
+
+.input {
+    background-color: #fff;
+}
