@@ -209,3 +209,20 @@ P.align {
 ul.sansPuces {
     list-style: none;
 }
+
+
+@media screen and (max-width:840px) and (min-width:450px)
+
+{
+    body, p, legend, label, .input,ul{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:450px)
+
+{
+    body, p, legend, label, .input,ul, form{
+        width: 30%;
+    }
+}
