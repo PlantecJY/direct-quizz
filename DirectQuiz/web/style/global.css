@@ -8,24 +8,25 @@
 
 /* Styles généraux */
 
-html {
-    min-height: 300px;
-}
 
-body, p, legend, label, .input {
+
+html,body, p, legend, label, .input {
+    height: 100%;
     color:#222;
     font-family:Verdana,Arial,Sans;
-    font-size:12px;
+    font-size:1em;
     background: #eee;
     text-align: justify;
+    width : 100%;
+    min-height:100%
 }
 
 #enveloppe {
     background: #fff;
     /* centrage */
     margin:0 auto;
-    width:900px;
-    min-height:800;
+    width:90%;
+    min-height:800 px;
     border-style:solid;
     border-color: #aaa;
     border-width:1px;
@@ -41,6 +42,7 @@ legend {
 h1 {
     text-shadow:2px 2px 10px white;
     color: #333399;
+    font-size : 1.5em;
 }
 
 #header {   
@@ -55,6 +57,7 @@ h1 {
     margin-right:5px;
     margin-bottom:15px;
     padding: 4px 4px 4px 4px;
+    width : 99%;
     /* ombre décalage h, décalage v, force */
     box-shadow: 2px 2px 1px #eee;
     -moz-box-shadow:2px 2px 10px gray;
@@ -100,12 +103,10 @@ h1 {
 
 #texte {
     background: #fff;
-    margin-left:5px;
-    margin-top:5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    min-height:500px;
+    height : 100%;
+    min-height:100%;
     padding: 4px 4px 4px 4px;
+    width : 90%;
 }
 
 #formJeu {
@@ -119,6 +120,7 @@ h1 {
 p, label {
     text-align:justify;
     background: #fff;
+    
 }
 
 a {
@@ -209,20 +211,5 @@ P.align {
 ul.sansPuces {
     list-style: none;
 }
+ 
 
-
-@media screen and (max-width:840px) and (min-width:450px)
-
-{
-    body, p, legend, label, .input,ul{
-        width: 50%;
-    }
-}
-
-@media screen and (max-width:450px)
-
-{
-    body, p, legend, label, .input,ul, form{
-        width: 30%;
-    }
-}
