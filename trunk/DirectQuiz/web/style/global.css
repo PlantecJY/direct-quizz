@@ -68,6 +68,7 @@ h1 {
     position:relative;
     bottom:-11px;
     left:10px; 
+  
 }
 
 #footer{
@@ -80,6 +81,7 @@ h1 {
 }
 
 #texteLogo{
+    
     position:relative;
     left: 20px;
     bottom:20px;
@@ -107,6 +109,7 @@ h1 {
     min-height:100%;
     padding: 4px 4px 4px 4px;
     width : 90%;
+  
 }
 
 #formJeu {
@@ -223,4 +226,27 @@ ul.sansPuces {
    height: 90%;
    border: 1px solid black;
     }
+       .tuto{
+         float: left;
+   padding: 5px;
+   width: 90%;
+   height: 90%;
+    }
+    .infoConnexion{
+         float: left;
+   padding: 5px;
+   width: 90%;
+   height: 90%;
+    }
+}
+
+@media screen and (max-width : 620px){
+    #texteLogo{
+        visibility: hidden;
+    }
+    #imageLogo{
+        
+    }
+
+    
 }
