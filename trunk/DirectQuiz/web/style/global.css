@@ -17,7 +17,6 @@ html,body, p, legend, label, .input {
     font-size:1em;
     background: #eee;
     text-align: justify;
-    width : 100%;
     min-height:100%
 }
 
