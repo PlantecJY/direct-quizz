@@ -188,6 +188,7 @@ a:hover {
 }
 
 #imageAccueil {
+     
     box-shadow:2px 2px 2px #555,
     -1px -1px 2px #ccc;    
 }
@@ -231,6 +232,9 @@ ul.sansPuces {
    padding: 5px;
    width: 90%;
    height: 90%;
+    }
+    #imageAccueil{
+        width : 100%;
     }
     .infoConnexion{
          float: left;
