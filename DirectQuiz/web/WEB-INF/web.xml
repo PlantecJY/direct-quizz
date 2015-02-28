@@ -17,6 +17,10 @@
         <servlet-class>servlets.Membre2</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>VerificationCompte</servlet-name>
+        <servlet-class>servlets.VerificationCompte</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>QuestionServlet</servlet-name>
         <servlet-class>servlets.QuestionServlet</servlet-class>
         <init-param>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>SaveHelpStatus</servlet-name>
         <url-pattern>/SaveHelpStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificationCompte</servlet-name>
+        <url-pattern>/verif</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -66,8 +66,7 @@ public final class ConnexionForm {
                 if(utilisateur.getValide() == 1){
                     resultat = "Succès de la connexion.";
                 } else {
-                    resultat = "Utilisateur non encore validé. Merci de patienter.";
-                    utilisateur = null;
+                    resultat = "Utilisateur non encore validé. Merci de suivre le lien que vous avez reçu par mail.";
                 }
             } else {
                 // l'utilisateur n'existe pas

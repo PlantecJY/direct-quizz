@@ -50,7 +50,6 @@
                 
             </c:if>
             <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
-            
         </div>
         
         <c:import url="page/footer.jsp"/>

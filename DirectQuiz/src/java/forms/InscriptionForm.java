@@ -1,6 +1,7 @@
 package forms;
 
 
+import mails.SMTPManager;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Date;
@@ -83,9 +84,12 @@ public final class InscriptionForm {
 
 
         if ( erreurs.isEmpty() ) {
+                String code=SMTPManager.generate();
+                utilisateur.setCode(code);
         	utilisateurDao.creer( utilisateur );
-        	resultat = "Votre demande d'inscription a bien été prise en compte.";
-                    // envoi de mail à l'admin
+                SMTPManager.sendCreateConfirmation(utilisateur.getEmail(), utilisateur.getLogin(), code);
+        	resultat = "Votre demande d'inscription a bien été prise en compte. Vous allez reçevoir un lien de confirmation par e-mail, veuillez le suivre. ";
+                    /*// envoi de mail à l'admin
                     String to = "plantec@insa-toulouse.fr";
                     // envoi de mail
                     try {
@@ -116,7 +120,7 @@ public final class InscriptionForm {
                         
                     } catch (Exception e){
                         
-                    }
+                    }*/
 
          } else {
             resultat = "";

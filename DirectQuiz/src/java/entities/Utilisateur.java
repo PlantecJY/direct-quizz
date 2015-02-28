@@ -77,6 +77,9 @@ public class Utilisateur implements Serializable {
     @NotNull
     @Column(name = "gestionnaire")
     private int gestionnaire;
+    @Basic(optional = true)
+    @Column(name = "code")
+    private String code;
     
     // un utilisateur possède plusieurs questions
     @OneToMany (mappedBy="Utilisateur")
@@ -184,4 +187,11 @@ public class Utilisateur implements Serializable {
         return "entities.Utilisateur[ id=" + id + " ]";
     }
     
+    public boolean verfCode(String coe) {
+        return coe.equals(this.code);
+    }
+    
+    public void setCode(String coe){
+        this.code=coe;
+    }
 }
