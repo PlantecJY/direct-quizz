@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import entities.Utilisateur;
 import dao.UtilisateurDao;
 import com.sun.jmx.snmp.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
 import javax.mail.Message;

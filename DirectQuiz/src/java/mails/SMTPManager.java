@@ -29,10 +29,10 @@ public class SMTPManager {
     public static String passUtil = "quizz123**";
 
     public static String generate() {
-        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"; // Tu supprimes les lettres dont tu ne veux pas
+        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"; // On supprime les lettres dont tu ne veux pas
         String pass = "";
         for (int x = 0; x < 10; x++) {
-            int i = (int) Math.floor(Math.random() * 62); // Si tu supprimes des lettres tu diminues ce nb
+            int i = (int) Math.floor(Math.random() * 62); // On supprime des lettres en diminuant ce nombre
             pass += chars.charAt(i);
         }
         System.out.println(pass);

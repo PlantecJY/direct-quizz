@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import dao.UtilisateurDao;
 import entities.Utilisateur;
 import forms.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 //@WebServlet( urlPatterns = { "/connexion" } )
 public class Connexion extends HttpServlet {
@@ -66,14 +69,14 @@ public class Connexion extends HttpServlet {
                 Utilisateur utilisateur = gestionFormulaire.connecterUtilisateur(request);
                 // Récupération de la session depuis la requête
                 HttpSession session = request.getSession();
-        		        // si aucune erreur de validation n'a eu lieu, alors ajout du bean à la session :
+                // si aucune erreur de validation n'a eu lieu, alors ajout du bean à la session :
                 // la session peut être détruite dans plusieurs circonstances :
                 //      l'utilisateur ferme son navigateur
                 //      la session expire après une période d'inactivité de l'utilisateur
                 // l'utilisateur se déconnecte.
 
                 String page = "";
-                if (utilisateur != null&&utilisateur.getValide()==1) {
+                if (utilisateur != null && utilisateur.getValide() == 1) {
                     session.setAttribute(ATT_SESSION_USER, utilisateur);
                     page = "index.jsp";
                 } else {
@@ -81,6 +84,9 @@ public class Connexion extends HttpServlet {
                     page = "formulaire_connexion.jsp";
                 }
                 // résultat du traitement et bean dans la requête
+                if (utilisateur.getGestionnaire()==1) {
+                    deleteLateUsers();
+                }
                 request.setAttribute(ATT_FORM, gestionFormulaire);
                 request.setAttribute(ATT_USER, utilisateur);
                 // affichage 
@@ -122,4 +128,18 @@ public class Connexion extends HttpServlet {
         doGet(request, response);
     }
 
+    public void deleteLateUsers() {
+        List<Utilisateur> utils = utilisateurDao.getAllMembres();
+        for (int i = 0; i < utils.size(); i++) {
+            Utilisateur utilisateur=utils.get(i);
+            if (utilisateur.getValide() == 0) {
+                Date inscr = utilisateur.getDateInscription();
+                Date actuelle = new Date();
+                System.out.println(utilisateur.getLogin());
+                if ((inscr.getTime() + 172800000) < actuelle.getTime()) {
+                    utilisateurDao.supprimerMembre(utilisateur.getId());
+                }
+            }
+        }
+    }
 }
