@@ -10,6 +10,9 @@ import entities.Utilisateur;
 import forms.ConnexionForm;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -63,7 +66,13 @@ public class VerificationCompte extends HttpServlet {
                     request.setAttribute("txt", "Cet utilisateur a déjà été validé.");
                 } else {
                     if (utilisateur.verfCode(code)) {
-                        utilisateurDao.validerMembre(utilisateur.getId());
+                        Date inscr=utilisateur.getDateInscription();
+                        Date actuelle=new Date();
+                        if ((inscr.getTime()+259200000)>actuelle.getTime()) {
+                            utilisateurDao.validerMembre(utilisateur.getId());
+                        } else {
+                            utilisateurDao.supprimerMembre(utilisateur.getId());
+                        }
                         request.setAttribute("txt", "Félicitations " + utilisateur.getLogin() + ", vous venez de valider votre compte ! ");
                     } else {
                         request.setAttribute("txt", "Le lien de vérification est erroné, veuillez vérifier le mail que vous avez reçu.");
@@ -114,5 +123,5 @@ public class VerificationCompte extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
 }
