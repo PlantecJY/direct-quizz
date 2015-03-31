@@ -218,12 +218,6 @@ ul.sansPuces {
     list-style: none;
 }
 
-ul 
-{
-    list-style-type: none;
-    padding-left: 0px;
-}
-
 .topcoat-checkbox {
   position: relative;
   display: none;
