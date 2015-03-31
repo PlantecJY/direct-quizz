@@ -43,72 +43,72 @@ import javax.validation.constraints.Null;
     @NamedQuery(name = "Question.findByTitre", query = "SELECT q FROM Question q WHERE q.titre = :titre"),
     @NamedQuery(name = "Question.findByPoints", query = "SELECT q FROM Question q WHERE q.points = :points")})
 public class Question implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "type_id")
     private Integer typeId;
-    
+
     // plusieurs questions possèdent le même un utilisateur ; pas de cascade, car on ne crée pas d'autre utilisateur
     @ManyToOne
-    @JoinColumn(name="utilisateur_id")
+    @JoinColumn(name = "utilisateur_id")
     Utilisateur utilisateur;
-    
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "titre")
     private String titre;
-    
+
     @Basic(optional = false)
     @NotNull
     @Lob
     @Size(min = 1, max = 65535)
     @Column(name = "enonce")
     private String enonce;
-    
+
     @Basic(optional = true)
     @NotNull
     @Column(name = "points")
     private Integer points;
-    
+
     @Basic(optional = true)
     @Column(name = "image")
     private String image;
-    
+
     @Basic(optional = true)
     @Column(name = "imageRealName")
     private String imageRealName;
-    
 
     // une question possède plusieurs réponses
-    @OneToMany (cascade = CascadeType.ALL, mappedBy="Question")
-    public List<Reponse> reponses ;
-    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Question")
+    public List<Reponse> reponses;
+
     // une question est dans plusieurs séquences : fetch = FetchType.LAZY, cascade = CascadeType.ALL
     @ManyToMany
     @JoinTable(name = "Question_Sequence",
-    joinColumns = {
-        @JoinColumn(name="question_id") 
-    },
-    inverseJoinColumns = {
-        @JoinColumn(name="sequence_id")
-    }
+            joinColumns = {
+                @JoinColumn(name = "question_id")
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "sequence_id")
+            }
     )
-    public List<Sequence> sequences ;
-    
+    public List<Sequence> sequences;
+
     // plusieurs questions ont le même thème ; pas de cascade, car on ne crée pas d'autre theme
     @ManyToOne(optional = true)
-    @JoinColumn(name="theme_id")
+    @JoinColumn(name = "theme_id")
     Theme theme;
-    
+
     public Question() {
     }
 
@@ -196,6 +196,18 @@ public class Question implements Serializable {
         return reponses;
     }
 
+    // cas où il faut dupliquer les '\' pour les formules de Latex
+    public List<Reponse> getReponses2() {
+        List<Reponse> rep = reponses;
+        for (Reponse r : rep) {
+            String text = r.getTexte(); // texte de la réponse 
+            String text2; // texte qui va contenir tous les '\' dupliqués  
+            text2 = text.replace("\\", "\\\\");
+            r.setTexte(text2);
+        }
+        return rep;
+    }
+
     public void setReponses(List<Reponse> reponses) {
         this.reponses = reponses;
     }
@@ -240,5 +252,5 @@ public class Question implements Serializable {
     public String toString() {
         return "dao.Question[ id=" + id + " ]";
     }
-    
+
 }
