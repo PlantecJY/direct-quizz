@@ -8,3 +8,4 @@
 <span class="boiteDeMenu"><a class="lienDeMenu" href="connexion?action=enregistrement&data=false">S'enregistrer</a></span>
 <span class="boiteDeMenu"><a class="lienDeMenu" href="sequence?action=participer&data=false">Participer</a></span>
 <span class="boiteDeMenu"><a class="lienDeMenu" href="connexion?action=connexion&data=false">Espace membre</a></span>
+<span class="boiteDeMenu"><a class="lienDeMenu" href="contributeurs">Contributeurs</a></span>

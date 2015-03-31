@@ -13,6 +13,10 @@
         <servlet-class>servlets.Connexion</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Contributeurs</servlet-name>
+        <servlet-class>servlets.Contributeurs</servlet-class>
+    </servlet>    
+    <servlet>
         <servlet-name>Membre2</servlet-name>
         <servlet-class>servlets.Membre2</servlet-class>
     </servlet>
@@ -68,6 +72,10 @@
         <servlet-name>Connexion</servlet-name>
         <url-pattern>/connexion</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Contributeurs</servlet-name>
+        <url-pattern>/contributeurs</url-pattern>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>Membre2</servlet-name>
         <url-pattern>/membre</url-pattern>
