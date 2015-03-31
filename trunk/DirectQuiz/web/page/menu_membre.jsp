@@ -10,5 +10,6 @@
 <span class="boiteDeMenu"><a class="lienDeMenu" href="sequence?action=lister">Séquences</a></span>
 <span class="boiteDeMenu"><a class="lienDeMenu" href="membre?action=lister">Membres</a></span>
 <span class="boiteDeMenu"><a class="lienDeMenu" href="connexion?action=deconnexion">Se déconnecter</a></span>
+<span class="boiteDeMenu"><a class="lienDeMenu" href="contributeurs">Contributeurs</a></span>
 &nbsp;<span class="tuto"><a href="#" onclick="afficheTutoriel()"><img src='./images/directQuiz-i-2.png' width="25px" heigth="27" alt="Tutoriel"></a></span>
 <br><p class="infoConnexion">Vous êtes connecté : ${sessionScope.sessionUtilisateur.login}</p>

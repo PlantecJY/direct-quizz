@@ -45,8 +45,8 @@
         </c:when>
     </c:choose>
 
-    <p>Lors d'une séance d'enseignement, d'une présentation, d'une conférence, il est assez utile pour l'enseignant, le présentateur ou le conférencier de savoir si les concepts présentés ont été correctement assimilés par l'auditoire.
-        On conviendra que les réponses orales à la question « Est-ce que tout le monde a compris ? » ne sont en général pas exploitables.</p>
+  <p>Lors d'une séance d'enseignement, d'une présentation, d'une conférence, il est assez utile pour l'enseignant, le présentateur ou le conférencier de savoir si les concepts présentés ont été correctement assimilés par l'auditoire.
+        On conviendra que les réponses orales à la question « Est-ce que tout le monde a compris ? » ne sont en général pas exploitables.</p>
 
     <p>L'utilisation de boîtiers de votes électroniques constitue une solution à ce problème, mais leur mise en oeuvre est souvent coûteuse.</p>
 
