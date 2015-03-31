@@ -9,8 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
+        <c:import url="page/scripts.jsp"/>
         <link type="text/css" rel="stylesheet" href="style/shadow.css" />
         <!--<script type="text/javascript" src="js/shadow.js"></script>-->
         <script type="text/javascript">

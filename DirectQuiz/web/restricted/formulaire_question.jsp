@@ -9,9 +9,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="style/forms.css" />
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
+        <c:import url="../page/scripts.jsp"/>
+        
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/tutoriel.js"></script>
 	<script src="js/ui/jquery.ui.core.js"></script>
@@ -27,7 +26,6 @@
 	<script src="js/ui/jquery.ui.effect.js"></script>
 	<script src="js/ui/jquery.ui.effect-blind.js"></script>
 	<script src="js/ui/jquery.ui.effect-explode.js"></script>
-	<link rel="stylesheet" href="js/themes/base/jquery.ui.all.css">
         <!--<script type="text/javascript" src="js/question.js"></script>-->
         <script type="text/javascript">
             // initialisation du nb de réponses
@@ -68,9 +66,13 @@
                         } else {
                             document.getElementById("rep"+i).innerHTML += '<input type="checkbox" id="check'+i+'" name="valeurs" value="'+i+'"/>';                    
                         }
-                        document.getElementById("rep"+i).innerHTML += '<input type="text" id="reponse'+i+'" name="reponse'+i+'" value="'+textes[i]+'" size="100" maxlength="150" />';
-                        document.getElementById("rep"+i).innerHTML += '<INPUT type="button" value="-" onClick="javascript:supprimeReponse('+i+')">';
-                        document.getElementById("rep"+i).innerHTML += '<span class="erreur">${form.erreurs["reponse1"]}</span>';
+                                   
+                         
+                       document.getElementById("rep"+i).innerHTML += '<input type="text" id="reponse'+i+'" name="reponse'+i+'" value="'+textes[i]+'" size="100" maxlength="150" />';
+                        
+                     document.getElementById("rep"+i).innerHTML += '<INPUT type="button" value="-" onClick="javascript:supprimeReponse('+i+')">';
+                        
+                       document.getElementById("rep"+i).innerHTML += '<span class="erreur">${form.erreurs["reponse1"]}</span>';
                         document.getElementById("rep"+i).innerHTML += '<br />';
                     }
                 }
@@ -100,9 +102,9 @@
             <c:otherwise>
                 <title>Edition de question</title>
             </c:otherwise>
-        </c:choose>
-        
+        </c:choose>        
     </head>
+    
     <body>
     <div id="enveloppe">
     	<c:import url="../page/header.jsp"/>

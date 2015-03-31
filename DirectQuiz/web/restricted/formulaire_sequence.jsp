@@ -9,10 +9,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="style/forms.css" />
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
+        <c:import url="../page/scripts.jsp"/>
         <link type="text/css" rel="stylesheet" href="style/sequence.css" />
+        
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/tutoriel.js"></script>
@@ -30,7 +29,6 @@
         <script src="js/ui/jquery.ui.effect-blind.js"></script>
         <script src="js/ui/jquery.ui.effect-explode.js"></script>
         <script src="js/ui/jquery"></script>
-        <link rel="stylesheet" href="js/themes/base/jquery.ui.all.css">
         <script type="text/javascript">
             // modification des questions : coche si dans la séquence
             function modifieQuestion(idQ) {
@@ -97,6 +95,7 @@
             </c:otherwise>
         </c:choose>
     </head>
+    
     <body>
         <div id="enveloppe">
 

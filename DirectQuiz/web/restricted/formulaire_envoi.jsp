@@ -9,13 +9,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="style/forms.css" />
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
+        <c:import url="../page/scripts.jsp"/>
         <script type="text/javascript" src="js/jquery.js"></script>
         <!--<script type="text/javascript" src="js/question.js"></script>-->
-        <title>Envoi de mail à tous les membres</title>
-        
+        <title>Envoi de mail à tous les membres</title>        
     </head>
     <body>
         <div id="enveloppe">

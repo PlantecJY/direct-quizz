@@ -9,11 +9,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Connexion</title>
-        <link type="text/css" rel="stylesheet" href="style/forms.css" />
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
+        <c:import url="page/scripts.jsp"/>
+        <title>Connexion</title>        
     </head>
+    
     <body>
     <div id="enveloppe">
     	<c:import url="page/header.jsp"/>
