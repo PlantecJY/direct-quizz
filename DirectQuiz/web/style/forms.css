@@ -11,13 +11,13 @@
 
 form label {
     float: left;
-    width: 100%;
+    width: 230px;
     margin: 3px 0px 0px 0px;
 }
 
 form label.participation {
     float: left;
-    width: 100%;
+    width: 280px;
     margin: 3px 0px 0px 0px;
 }
 
