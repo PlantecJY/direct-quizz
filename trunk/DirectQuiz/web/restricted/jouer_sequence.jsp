@@ -11,10 +11,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <title>Jeu de séquence</title>
+    <c:import url="../page/scripts.jsp"/>
+    
     <link type="text/css" rel="stylesheet" href="style/tables.css" />
-    <link type="text/css" rel="stylesheet" href="style/global.css" />
     <link type="text/css" rel="stylesheet" href="style/sequence.css" />
     <link href="" rel="stylesheet" type="text/css" id="partcss" />
     <link href="" rel="stylesheet" type="text/css" id="scocss" />
@@ -35,7 +36,6 @@
 	<script src="js/ui/jquery.ui.effect-blind.js"></script>
 	<script src="js/ui/jquery.ui.effect-explode.js"></script>
         <script src="js/ui/jquery.ui.tooltip.js"></script>
-	<link rel="stylesheet" href="js/themes/base/jquery.ui.all.css">
     <script type="text/javascript">
         var requete;
 

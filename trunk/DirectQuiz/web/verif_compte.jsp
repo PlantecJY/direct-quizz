@@ -3,10 +3,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <c:import url="page/scripts.jsp"/>
         <title>Inscription</title>
-        <link type="text/css" rel="stylesheet" href="style/forms.css" />
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
     </head>
     <body>
     <div id="enveloppe">

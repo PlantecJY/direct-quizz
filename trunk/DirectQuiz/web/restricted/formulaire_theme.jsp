@@ -9,9 +9,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="style/forms.css" />
-        <link type="text/css" rel="stylesheet" href="style/global.css" />
+        <c:import url="../page/scripts.jsp"/>
+        
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/tutoriel.js"></script>
 	<script src="js/ui/jquery.ui.core.js"></script>
@@ -27,7 +26,6 @@
 	<script src="js/ui/jquery.ui.effect.js"></script>
 	<script src="js/ui/jquery.ui.effect-blind.js"></script>
 	<script src="js/ui/jquery.ui.effect-explode.js"></script>
-	<link rel="stylesheet" href="js/themes/base/jquery.ui.all.css">
        <!--<script type="text/javascript" src="js/question.js"></script>-->
         <c:choose>
             <c:when test="${action} == 'ajouter'">

@@ -11,10 +11,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <c:import url="../page/scripts.jsp"/>
     <title>Liste des thèmes</title>
     <link type="text/css" rel="stylesheet" href="style/tables.css" />
-    <link type="text/css" rel="stylesheet" href="style/global.css" />
     <link type="text/css" rel="stylesheet" href="style/question.css" />
     <script type="text/javascript" src="js/suppression.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
@@ -32,7 +31,6 @@
 	<script src="js/ui/jquery.ui.effect.js"></script>
 	<script src="js/ui/jquery.ui.effect-blind.js"></script>
 	<script src="js/ui/jquery.ui.effect-explode.js"></script>
-	<link rel="stylesheet" href="js/themes/base/jquery.ui.all.css">
 </head>
 <body>
 <div id="enveloppe">
