@@ -75,13 +75,14 @@ public class Resultats extends HttpServlet {
                         Sequence sequence = sequenceDao.getById(idSequence);
                                                
                         // test 3
-                        texteReponses3 = "<table class=\"defaut\">";
+                        texteReponses3 = "<table id=\"tabResultats\" >";
                         // Map des sommes par questions
                         Map <Integer, Integer> somme = new HashMap<Integer, Integer>();
                         // Nombre de points totaux
                         Integer totalPoints = 0;
                         // première ligne
                         texteReponses3 = texteReponses3 + "<tr><td class=\"part\">Part.</td>";
+                        
                         // autant de colonnes que de questions
                         for(Question question : sequence.getQuestions()){
                             // initialisation de la map somme
@@ -98,11 +99,10 @@ public class Resultats extends HttpServlet {
                                    chaineR = chaineR + reponse.getId() +"-";
                                 }
                             }
-                            //texteReponses3 = texteReponses3 + "<br>" + chaineR;
+                           
                             texteReponses3 = texteReponses3 + "</td>";
                         }
                         // dernière colonne
-                        texteReponses3 = texteReponses3 + "<td class=\"score\"></td>";
                         texteReponses3 = texteReponses3 + "</tr>";
                             
                         //boucle / participants
@@ -115,6 +115,7 @@ public class Resultats extends HttpServlet {
                             if(participant.getSequence().getId() == idSequence){
                                 texteReponses3 = texteReponses3 + "<tr>";
                                 texteReponses3 = texteReponses3 + "<td class=\"part\">" + participant.getIdentifiant() + "</td>";
+                                
                                 // boucle sur les questions de la sequence (le participant y a répondu ou pas)
                                 for(Question question : sequence.getQuestions()){
                                     // chaine des id des réponses justes
@@ -146,6 +147,7 @@ public class Resultats extends HttpServlet {
                                             // test si la réponse est juste
                                             if(chaineR.equals(chaineRP)){
                                                 texteReponses3 = texteReponses3 + "class=\"OK\">OK";
+                                                
                                                 // score
                                                 score = score + question.getPoints();
                                                 // somme
@@ -157,7 +159,9 @@ public class Resultats extends HttpServlet {
                                                 //String resultatsParticipant = question.getEnonce() + "";
                                                 String idQuestion = question.getId().toString();
                                                 //texteReponses3 = texteReponses3 + "class=\"NOK\"><a href=\"#\" onmouseover=\"javascript:afficheReponsesParticipant("+idQuestion+")\">NOK</a>";
-                                                texteReponses3 = texteReponses3 + "class=\"NOK\"><a href=\"#\" id=\"q"+idQuestion+"\" reponses=\""+chaineRP+"\">NOK</a>";
+                                               //texteReponses3 = texteReponses3 + "class=\"NOK\"><a href=\"#\" id=\"q"+idQuestion+"\" reponses=\""+chaineRP+"\">NOK</a>";
+                                                texteReponses3 = texteReponses3 + "class=\"NOK\">NOK";                                          
+                                           
                                             }
                                             break;
 
@@ -170,7 +174,7 @@ public class Resultats extends HttpServlet {
                                     texteReponses3 = texteReponses3 + "</td>"; 
                                 }
                                 // dernière colonne
-                                texteReponses3 = texteReponses3 + "<td class=\"score\">"+score+"/"+totalPoints+"</td>";
+                                texteReponses3 = texteReponses3 + "<td></td>";
                                 texteReponses3 = texteReponses3 + "</tr>";
                             }
                         }
@@ -182,6 +186,7 @@ public class Resultats extends HttpServlet {
                         texteReponses3 = texteReponses3 + "</tr>";
                         
                         texteReponses3 = texteReponses3 + "</table>";
+                      
                     }
                     
                     // traitement selon action
@@ -199,10 +204,8 @@ public class Resultats extends HttpServlet {
                         response.setHeader("Cache-Control", "no-cache");
                         response.getWriter().write("<message><![CDATA["+texteReponses3+"]]></message>");
                     }
-
             
                 }
-
    }
 
     @Override
