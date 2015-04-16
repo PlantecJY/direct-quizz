@@ -196,6 +196,8 @@ public class Resultats extends HttpServlet {
                             texteReponses3 = texteReponses3 + "<p><a href=\"sequence?action=vider&id="+idSequence+"\">Vider les résultats</a></p>";
                         }
                         request.setAttribute( "texteReponses3", texteReponses3 );
+                        request.setAttribute( "listeParticipants", listeParticipants );
+
                             
                     } else if(action.equals("maj")){
                         // affichage temps réél
