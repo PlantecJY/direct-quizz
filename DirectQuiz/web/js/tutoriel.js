@@ -75,6 +75,9 @@ function afficheTutoriel(){
         case "jouer_mode_libre": 
             texte = "Cette page permet de jouer une séquence.<br>Communiquez le code et le mot de passe de cette séquence à votre auditoire et demandez-leur d'ouvrir DirectQuiz à la rubrique \"Participer\", puis d'entrer ce code, ce mot de passe ainsi qu'un identifiant de leur choix (sans caractères accentués) et de répondre aux différentes questions.<br>Cette page devrait alors afficher leur progression.<br>A tout moment, mais en général seulement une fois que tout l'auditoire aura répondu, vous pouvez clôre la séquence de jeu et étudier les réponses, participant par participant.<br>Attention, ces données ne sont pas enregistrées par l'application (prochainement, vous pourrez les exporter pour post-traitement).";
             break; 
+        case "contributeurs": 
+            texte = "Cette page liste tous ceux qui ont participé au développement de DirectQuiz. <br> Vous avez la possibilité d'accéder au profil LinkedIn de chacun des contributeurs." ; 
+            break;    
         case null: 
             texte = "Pas d'aide pour cette page.";
             break; 

@@ -5,175 +5,132 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-    <c:import url="../page/scripts.jsp"/>
-    <title>Liste des séquences</title>
-    <link type="text/css" rel="stylesheet" href="style/tables.css" />
-    <link type="text/css" rel="stylesheet" href="style/sequence.css" />
-    <script type="text/javascript" src="js/suppression.js"></script>    
+    <head>
+        <c:import url="../page/scripts.jsp"/>
+        <title>Liste des séquences</title>
+        <link type="text/css" rel="stylesheet" href="style/tables.css" />
+        <link type="text/css" rel="stylesheet" href="style/sequence.css" />
+        <script type="text/javascript" src="js/suppression.js"></script>    
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/tutoriel.js"></script>
-	<script src="js/ui/jquery.ui.core.js"></script>
-	<script src="js/ui/jquery.ui.widget.js"></script>
-	<script src="js/ui/jquery.ui.tabs.js"></script>
-	<script src="js/ui/jquery.ui.accordion.js"></script>
-	<script src="js/ui/jquery.ui.mouse.js"></script>
-	<script src="js/ui/jquery.ui.position.js"></script>
-	<script src="js/ui/jquery.ui.resizable.js"></script>
-	<script src="js/ui/jquery.ui.draggable.js"></script>
-	<script src="js/ui/jquery.ui.button.js"></script>
-	<script src="js/ui/jquery.ui.dialog.js"></script>
-	<script src="js/ui/jquery.ui.effect.js"></script>
-	<script src="js/ui/jquery.ui.effect-blind.js"></script>
-	<script src="js/ui/jquery.ui.effect-explode.js"></script>
-
+        <script src="js/ui/jquery.ui.core.js"></script>
+        <script src="js/ui/jquery.ui.widget.js"></script>
+        <script src="js/ui/jquery.ui.tabs.js"></script>
+        <script src="js/ui/jquery.ui.accordion.js"></script>
+        <script src="js/ui/jquery.ui.mouse.js"></script>
+        <script src="js/ui/jquery.ui.position.js"></script>
+        <script src="js/ui/jquery.ui.resizable.js"></script>
+        <script src="js/ui/jquery.ui.draggable.js"></script>
+        <script src="js/ui/jquery.ui.button.js"></script>
+        <script src="js/ui/jquery.ui.dialog.js"></script>
+        <script src="js/ui/jquery.ui.effect.js"></script>
+        <script src="js/ui/jquery.ui.effect-blind.js"></script>
+        <script src="js/ui/jquery.ui.effect-explode.js"></script>
+        <script src="js/exportCSV.js"></script>
         <script type="text/javascript">
             // initialisation du nb de réponses
-            function afficheReponses(id){
+            function afficheReponses(id) {
                 //alert('affiche '+id);
-                document.getElementById("uneQuestion"+id).style.display = "block";
+                document.getElementById("uneQuestion" + id).style.display = "block";
             }
-            function cacheReponses(id){
+            function cacheReponses(id) {
                 //alert('cache '+id);
-                document.getElementById("uneQuestion"+id).style.display = "none";
+                document.getElementById("uneQuestion" + id).style.display = "none";
             }
         </script>
-</head>
-<body>
-<div id="enveloppe">
+    </head>
+    <body>
+        <div id="enveloppe">
 
-<c:import url="../page/header.jsp"/>
+            <c:import url="../page/header.jsp"/>
 
-<c:import url="../page/menu_membre.jsp"/>
-    
-<c:import url="../page/help.jsp"/>
+            <c:import url="../page/menu_membre.jsp"/>
 
-<div id ="texte">
-    
-    <p class="faux">${message}</p>
+            <c:import url="../page/help.jsp"/>
 
-    <h2 class="titre">Liste des séquences</h2>
+            <div id ="texte">
 
-    <a href="sequence?action=ajouter&data=false">Ajouter séquence</a><br><br>
+                <p class="faux">${message}</p>
 
-    <script type="text/javascript">
-        var nbItems = 0;
-        var page = "liste_sequences";
-    </script>
+                <h2 class="titre">Liste des séquences</h2>
 
-    <table class="defaut">
-        <tr>
-            <th>Code</th>
-            <th>Mot de passe</th>        
-            <th colspan="5" align="left">Actions</th>        
-        </tr>
-    <c:forEach var="item" items="${listeSequences}" >
-        <tr>
-            <td><c:out value="${item.code}" /></td>
-            <td><c:out value="${item.motDePasse}" /></td>
-            <td><a href="#" onclick="confirmation('cette séquence','sequence?action=supprimer&id=',${item.id});">Supprimer</a></td>
-            <td><a href="sequence?action=editer&id=${item.id}">éditer</a></td>
-            <td><a href="sequence?action=voir&id=${item.id}">voir</a></td>
-            <td>jouer en mode dirigé</td>
-            <td><a href="sequence?action=jouer&id=${item.id}&mode=libre">jouer en mode libre</a></td>
-        <tr>
-        <script type="text/javascript">
-            nbItems++;
-        </script>
-    </c:forEach>
-    </table>
-    <br>
-    <c:if test="${!empty sequence}">
-        <div id="uneSequence">
-            <p>Code : ${sequence.code}</p>
-            <p>Mot de passe : ${sequence.motDePasse}</p>
+                <a href="sequence?action=ajouter&data=false">Ajouter séquence</a><br><br>
 
-            <ul>
-            <c:forEach var="item" items="${sequence.getQuestions()}" >
-                <li><c:out value="${item.titre}" /> - <c:out value="${item.enonce}" /> <a href="#" onmouseover="javascript:afficheReponses('${item.id}')" onmouseout="javascript:cacheReponses('${item.id}')">Réponses</a>
-                    <ul id="uneQuestion${item.id}" style="background-color:#eee; display:none;">
-                        <c:forEach var="itemR" items="${item.getReponses()}" varStatus="status">
-                            <c:choose>
-                                <c:when test="${itemR.valeur == '1'}">
-                                    <li>${itemR.texte} (x)</li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li>${itemR.texte}</li>
-                                </c:otherwise>
-                            </c:choose>        
-                        </c:forEach> 
-                    </ul>
-                </li>
-            </c:forEach>
-            </ul>
+                <script type="text/javascript">
+                    var nbItems = 0;
+                    var page = "liste_sequences";
+                </script>
+
+                <table class="defaut">
+                    <tr>
+                        <th>Code</th>
+                        <th>Mot de passe</th>        
+                        <th colspan="5" align="left">Actions</th>        
+                    </tr>
+                    <c:forEach var="item" items="${listeSequences}" >
+                        <tr>
+                            <td><c:out value="${item.code}" /></td>
+                            <td><c:out value="${item.motDePasse}" /></td>
+                            <td><a href="#" onclick="confirmation('cette séquence', 'sequence?action=supprimer&id=',${item.id});">Supprimer</a></td>
+                            <td><a href="sequence?action=editer&id=${item.id}">éditer</a></td>
+                            <td><a href="sequence?action=voir&id=${item.id}">voir</a></td>
+                            <td>jouer en mode dirigé</td>
+                            <td><a href="sequence?action=jouer&id=${item.id}&mode=libre">jouer en mode libre</a></td>
+                        <tr>
+                        <script type="text/javascript">
+                            nbItems++;
+                        </script>
+                    </c:forEach>
+                </table>
+                <br>
+                <c:if test="${!empty sequence}">
+                    <div id="uneSequence">
+                        <p>Code : ${sequence.code}</p>
+                        <p>Mot de passe : ${sequence.motDePasse}</p>
+
+                        <ul>
+                            <c:forEach var="item" items="${sequence.getQuestions()}" >
+                                <li><c:out value="${item.titre}" /> - <c:out value="${item.enonce}" /> <a href="#" onmouseover="javascript:afficheReponses('${item.id}')" onmouseout="javascript:cacheReponses('${item.id}')">Réponses</a>
+                                    <ul id="uneQuestion${item.id}" style="background-color:#eee; display:none;">
+                                        <c:forEach var="itemR" items="${item.getReponses()}" varStatus="status">
+                                            <c:choose>
+                                                <c:when test="${itemR.valeur == '1'}">
+                                                    <li>${itemR.texte} (x)</li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li>${itemR.texte}</li>
+                                                    </c:otherwise>
+                                                </c:choose>        
+                                            </c:forEach> 
+                                    </ul>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+
+                    <iframe id="myFrame" style="display:none"></iframe>
+
+                    <!-- résultats de la séquence -->
+                    <br> 
+                    <p> 
+                        <i>  <u>Résultats de la séquence :</u>  </i>
+                                ${texteReponses3}      
+                        <c:if test="${!empty listeParticipants}">   
+                            <a href="#" onclick="csvExport('#tabResultats', 'Résultats Séquence ${sequence.code}');" id="btnExport" >Export des résultats en CSV</a>  
+                        </c:if>
+                    </p>           
+
+                </c:if>
+
+
+            </div>
+
+            <c:import url="../page/footer.jsp"/>
         </div>
-            
-         <iframe id="myFrame" style="display:none"></iframe>
-         
-            <!-- résultats de la séquence -->
-        <p>Résultats de la séquence :</p>  
-        <p>${texteReponses3}</p>           
-
-        <a href="#" id="btnExport" >Export des résultats en CSV</a>
-        <script> $("#btnExport").on('click', function (event) {
-			//Get table
-                        var table = $("#tabResultats")[0];
-
-			//Get number of rows/columns
-			var rowLength = table.rows.length;
-			var colLength = table.rows[0].cells.length;
-
-			//Declare string to fill with table data
-			var tableString = "";
-
-			//Get column headers
-			for (var i = 0; i < colLength; i++) {
-				tableString += table.rows[0].cells[i].innerHTML.split(",").join("") + ",";
-			}
-
-			tableString = tableString.substring(0, tableString.length - 1);
-			tableString += "\r\n";
-
-			//Get row data
-			for (var j = 1; j < rowLength; j++) {
-				for (var k = 0; k < colLength; k++) {
-					tableString += table.rows[j].cells[k].innerHTML.split(",").join("") + ",";
-				}
-				tableString += "\r\n";
-			}
-
-			//Save file
-			if (navigator.appName == "Microsoft Internet Explorer") {
-                      tableString = 'sep=,\r\n' + tableString;
-
-                     myFrame.document.open("text/html", "replace");
-                     myFrame.document.write(tableString);
-                     myFrame.document.close();
-                     myFrame.focus();
-                     myFrame.document.execCommand('SaveAs', true, 'data.csv');
-                 } else {
-                 	csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(tableString);
-                     $(event.target).attr({
-                         'href': csvData,
-                         'target': '_blank',
-                         'download': 'ResultatSeq.csv'
-                     });
-                 }
-		});
-        </script>
-        
-
-    </c:if>
-
-
-</div>
-
-<c:import url="../page/footer.jsp"/>
-</div>
-</body>
+    </body>
 </html>
