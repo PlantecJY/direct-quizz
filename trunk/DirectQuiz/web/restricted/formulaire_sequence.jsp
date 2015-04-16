@@ -50,10 +50,10 @@
                     if (elements[i].type == 'checkbox') {
                         if (elements[i].name == 'cochertout') {
                             elements[i].checked = false;
-                        } else {
-                            if ((elements[i].nextElementSibling.innerHTML == themeChoisi) || (themeChoisi == "tous...")) {
-                                //le carré checkbox 
-                                elements[i].style.display = 'inline';
+                            } else {
+                                if ((elements[i].nextElementSibling.innerHTML == themeChoisi) || (themeChoisi == "tous...")) {
+                                    //le carré checkbox 
+                                    elements[i].style.display = 'inline';
                                 //le thème 
                                 elements[i].nextElementSibling.style.display = 'inline';
                                 //le reste de la ligne après le thème
@@ -72,7 +72,7 @@
                 }
             }
             //fonction qui coche tous les éléments checkbox
-            function CocheTout(ref, name) {
+            function CocheTout(ref) {
                 var form = ref;
                 while (form.parentNode && form.nodeName.toLowerCase() != 'form') {
                     form = form.parentNode;
@@ -80,7 +80,8 @@
 
                 var elements = form.getElementsByTagName('input');
                 for (var i = 0; i < elements.length; i++) {
-                    if (elements[i].type == 'checkbox' && elements[i].name == name && (elements[i].style.display != 'none')) {
+                    // name = valeurs pour distinguer des autres checkbox non concérnées par ce traitement
+                    if (elements[i].type == 'checkbox' && elements[i].name == 'valeurs' && (elements[i].style.display != 'none')) {
                         elements[i].checked = ref.checked;
                     }
                 }
