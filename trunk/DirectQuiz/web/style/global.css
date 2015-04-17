@@ -219,13 +219,13 @@ ul.sansPuces {
 }
 
 .topcoat-checkbox {
-  position: relative;
+  //position: relative;
   display: none;
-  line-height: 2rem;
-    -webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  //line-height: 2rem;
+   // -webkit-user-select: none;
+	//-moz-user-select: none;
+	//-ms-user-select: none;
+	//user-select: none;
   
 }
 
@@ -257,7 +257,10 @@ ul.sansPuces {
 	box-shadow: inset 0 1px #fff;
 }
 
-
+li.reponse{
+        list-style-type: none;
+        margin-bottom: 5px;
+    }
 
 /* Checkmark */
 .topcoat-checkbox__checkmark:after {
@@ -300,18 +303,19 @@ ul.sansPuces {
 
 
 
-@media screen and (max-width : 760px){
+@media screen and (max-width : 700px){
     .boiteDeMenu{
          float: left;
+         text-align: center;
    padding: 5px;
-   width: 90%;
+   width:90% ;
    height: 90%;
    border: 1px solid black;
     }
     
-    .reponse{
-        visibility: hidden;
-    }
+    /*.reponse{
+       visibility: hidden;
+    }*/
        .tuto{
          float: left;
    padding: 5px;
@@ -328,10 +332,28 @@ ul.sansPuces {
    height: 90%;
     }
     
-    li.reponse{
-        visibility: hidden;
-    }
+   .checkq
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari and Chrome */
+  -o-transform: scale(3); /* Opera */
+  padding: 10px;
+}
 
+.checkboxtext
+{
+    padding-left: 20px;
+  /* Checkbox text */
+  font-size: 100%;
+  display: block;
+}
+    
+    li.reponse{
+       margin-bottom: 20px;
+    }
+    /*
     
     input[type=checkbox] {
         
@@ -352,16 +374,17 @@ ul.sansPuces {
     .span_reponse{
         display : inline;
     }
- 
-}
-
-@media screen and (max-width : 620px){
+    */
+    
+    #bouton {
+        font-size: 20px;
+        text-align: center;
+   padding: 5px;
+   width:100% ;
+   height: 90%;
+   border: 1px solid grey;
+    }
     #texteLogo{
         visibility: hidden;
     }
-    #imageLogo{
-        
-    }
-
-    
 }
