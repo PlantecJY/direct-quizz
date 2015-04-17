@@ -46,9 +46,9 @@
 
                 <ul>
                     <li><a href="http://fr.linkedin.com/pub/jean-yves-plantec/28/91b/a79/fr">Jean Yves Plantec</a>, créateur et coordinateur du projet</li>
-                    <li><a href="https://www.linkedin.com/pub/salah-atmitim/aa/253/5b5">Salah Atmitim</a>, contributeur entre décembre 2014 et juin 2015</li>
-                    <li><a href="https://fr.linkedin.com/pub/anthony-gourraud/b2/918/271">Gourraud Anthony</a>, contributeur entre décembre 2014 et juin 2015</li>
-                    <li><a href="https://fr.linkedin.com/pub/arthur-grévin/b2/918/b1a">Grévin Arthur</a>, contributeur entre décembre 2014 et juin 2015</li>
+                    <li><a href="https://www.linkedin.com/pub/salah-atmitim/aa/253/5b5">Salah-Eddine Atmitim</a>, contributeur entre décembre 2014 et juin 2015</li>
+                    <li><a href="https://fr.linkedin.com/pub/anthony-gourraud/b2/918/271">Anthony Gourraud</a>, contributeur entre décembre 2014 et juin 2015</li>
+                    <li><a href="https://fr.linkedin.com/pub/arthur-grévin/b2/918/b1a">Arthur Grévin</a>, contributeur entre décembre 2014 et juin 2015</li>
                     <li><a href="https://fr.linkedin.com/pub/samih-lachegur/b1/57a/172">Samih Lachegur</a>, contributeur entre décembre 2014 et juin 2015</li>
                 </ul>
                 
