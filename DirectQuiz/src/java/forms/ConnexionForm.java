@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import dao.UtilisateurDao;
 
 import entities.Utilisateur;
+import static forms.InscriptionForm.chiffrerMdp;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
@@ -40,10 +41,11 @@ public final class ConnexionForm {
 
     public Utilisateur connecterUtilisateur( HttpServletRequest request ) {
         /* Récupération des champs du formulaire */
-        String motDePasse = getValeurChamp( request, CHAMP_PASS );
+        //String motDePasse = getValeurChamp( request, CHAMP_PASS );
         String login = getValeurChamp( request, CHAMP_LOGIN );
         String email = getValeurChamp( request, CHAMP_EMAIL );
-
+        
+        String motDePasse = chiffrerMdp(getValeurChamp(request, CHAMP_PASS), login);
         /* Validation du champ login. */
         try {
             validationLogin( login );

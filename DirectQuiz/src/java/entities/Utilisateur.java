@@ -55,7 +55,7 @@ public class Utilisateur implements Serializable {
     private String login;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 32)
     @Column(name = "mot_de_passe")
     private String motDePasse;
     @Basic(optional = false)
