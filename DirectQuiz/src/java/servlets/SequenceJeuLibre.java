@@ -137,7 +137,7 @@ public class SequenceJeuLibre extends javax.servlet.http.HttpServlet {
                             nbReponses++;
                             Reponse reponse = question.getReponses().get(j);
                             int idReponse = reponse.getId();
-                            texteQuestion = texteQuestion + "<li class=\"reponse\"><table><tr><td><input type=\"checkbox\" class=\"checkq\"name=\"valeurs\" value=\""+idReponse+"\"/></td><td><span class=\"checkboxtext\">"+reponse.getTexte()+"</span></td></tr></table></li>";
+                            texteQuestion = texteQuestion + "<li class=\"reponse\"><table><tr><td><input type=\"checkbox\" class=\"checkq\"name=\"valeurs\" id=\""+idReponse+"\" value=\""+idReponse+"\"/></td><td><span id=\""+idReponse+"\" onclick=\"document.getElementById('"+idReponse+"').checked=!document.getElementById('"+idReponse+"').checked;\" class=\"checkboxtext\">"+reponse.getTexte()+"</span></td></tr></table></li>";
                         
                         }
                         texteQuestion = texteQuestion +"</ul>";
