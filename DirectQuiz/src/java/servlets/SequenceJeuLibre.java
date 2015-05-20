@@ -138,15 +138,7 @@ public class SequenceJeuLibre extends javax.servlet.http.HttpServlet {
                             Reponse reponse = question.getReponses().get(j);
                             int idReponse = reponse.getId();
                             texteQuestion = texteQuestion + "<li class=\"reponse\"><table><tr><td><input type=\"checkbox\" class=\"checkq\"name=\"valeurs\" value=\""+idReponse+"\"/></td><td><span class=\"checkboxtext\">"+reponse.getTexte()+"</span></td></tr></table></li>";
-                            /*texteQuestion = texteQuestion +"<label for=\"checkbox"+idReponse+"\" class=\"topcoat-checkbox\">  "
-                                    + "<input id=\"checkbox"+idReponse+"\" aria-labelledby=\"checkbox3-label\" aria-describedby=\"checkbox3-description\" name=\"valeurs\" type=\"checkbox\" value=\""+idReponse+"\"/>  "
-                                    + "<div class=\"topcoat-checkbox__checkmark\"></div> "
-                                    + "<span class =\"span_reponse\" id=\"checkbox"+idReponse+"-label\">"+reponse.getTexte()+"</span></label>";
-                                texteQuestion = texteQuestion +"<table class=\"topcoat-checkbox\"><tr>"
-                                    + "<td style=\'width=40px; \'><input id=\"checkbox"+idReponse+"\" aria-labelledby=\"checkbox3-label\" aria-describedby=\"checkbox3-description\" name=\"valeurs\" type=\"checkbox\" value=\""+idReponse+"\"/> </td> "
-                                    + "<td><div class=\"topcoat-checkbox__checkmark\"></div> </td>"
-                                    + "<td><span class =\"span_reponse\" id=\"checkbox"+idReponse+"-label\">"+reponse.getTexte()+"</span></td></tr></table>";
-                            */
+                        
                         }
                         texteQuestion = texteQuestion +"</ul>";
                         texteQuestion = texteQuestion+"<br><input id=\"bouton\" type=\"submit\" value=\"Soumettre\" \"/></p>";
