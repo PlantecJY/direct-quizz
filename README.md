@@ -6,7 +6,7 @@ Plateforme de sondage en ligne ; outil pédagogique permettant aux professeurs d
 2. Configuration du serveur GlassFish (cf documentation)
 3. Configuration de la base de donnée (cf documentation)
 
-## Précisions concenrant la base de donnée 
+## Précisions concernant la base de donnée 
 * Initialisation de la BDD avec le script `direct-sondage.sql` (présent dans le dossier DirectQuiz)
 * Chiffrement des mots de passe :
 Utiliser ce nouveau script `direct-sondage.sql` pour les tests en local, car elle intègre les mots de passe chiffrés (algo MD5) et les modifications sur la longueur du champ mot de passe de l'ancienne base de donnée.
