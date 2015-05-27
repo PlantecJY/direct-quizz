@@ -40,7 +40,7 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" class="chekq" name="valeurs" id="${i.id}" value="${i.id}"/>
+                                                <input type="checkbox" class="checkq" name="valeurs" id="${i.id}" value="${i.id}"/>
                                             </td>
                                             <td>
                                                 <span id="${i.id}" onclick="document.getElementById('${i.id}').checked=!document.getElementById('${i.id}').checked;" class="checkboxtext">${i.texte}</span>
