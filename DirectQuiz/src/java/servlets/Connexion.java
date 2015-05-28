@@ -67,6 +67,7 @@ public class Connexion extends HttpServlet {
                 ConnexionForm gestionFormulaire = new ConnexionForm(utilisateurDao);
                 // vérification des données de la requête / nouvel utilisateur
                 Utilisateur utilisateur = gestionFormulaire.connecterUtilisateur(request);
+                
                 // Récupération de la session depuis la requête
                 HttpSession session = request.getSession();
                 // si aucune erreur de validation n'a eu lieu, alors ajout du bean à la session :
@@ -84,7 +85,7 @@ public class Connexion extends HttpServlet {
                     page = "formulaire_connexion.jsp";
                 }
                 // résultat du traitement et bean dans la requête
-                if (utilisateur.getGestionnaire()==1) {
+                if (utilisateur != null && utilisateur.getGestionnaire()==1) {
                     deleteLateUsers();
                 }
                 request.setAttribute(ATT_FORM, gestionFormulaire);
@@ -92,6 +93,7 @@ public class Connexion extends HttpServlet {
                 // affichage 
                 RequestDispatcher dispatch = request.getRequestDispatcher(page);
                 dispatch.forward(request, response);
+
             }
         } else if (action.equals("deconnexion")) {
             // connexion
