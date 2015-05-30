@@ -30,7 +30,7 @@
                         <p>
                             <input type="hidden" name="idQuestion" value="${question.id}"/>
                             <h2 class="titre"> Question n°${numeroQuestion-1}</h2>
-                            <br><b>${question.titre}</b><br> ${question.enonce}
+                            <br><b>${question.titre}</b><br><table><tr><td> ${question.enonce}</td></tr></table>
                             <c:if test="${testimage}">
                             <br><img src='./img/${question.imageRealName}' width='200px'><br>
                             </c:if>
