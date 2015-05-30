@@ -84,7 +84,7 @@ public class Connexion extends HttpServlet {
                     page = "formulaire_connexion.jsp";
                 }
                 // résultat du traitement et bean dans la requête
-                if (utilisateur.getGestionnaire()==1) {
+                if (utilisateur != null && utilisateur.getGestionnaire()==1) {
                     deleteLateUsers();
                 }
                 request.setAttribute(ATT_FORM, gestionFormulaire);
