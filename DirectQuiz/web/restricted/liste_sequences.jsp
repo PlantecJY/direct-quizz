@@ -121,7 +121,7 @@
                         <i>  <u>Résultats de la séquence :</u>  </i>
                                 ${texteReponses3}      
                         <c:if test="${!empty listeParticipants}">   
-                            <a href="#" onclick="csvExport('#tabResultats', 'Résultats Séquence ${sequence.code}');" id="btnExport" >Export des résultats en CSV</a>  
+                            <a href="#" download="test.csv" onclick="csvExport('#tabResultats', 'Résultats Séquence ${sequence.code}', '#btnExport');" id="btnExport" >Export des résultats en CSV</a>  
                         </c:if>
                     </p>           
 

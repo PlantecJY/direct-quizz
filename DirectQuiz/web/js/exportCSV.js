@@ -1,4 +1,4 @@
-function csvExport(idTable, titre) {
+function csvExport(idTable, titre, btn) {
     
     // gestion date
     var now = new Date();
@@ -40,7 +40,7 @@ function csvExport(idTable, titre) {
     
     // détecter IE
     var iev=0;
-     var ieold = (/MSIE (\d+\.\d+);/.test(navigator.userAgent));
+    var ieold = (/MSIE (\d+\.\d+);/.test(navigator.userAgent));
     var trident = !!navigator.userAgent.match(/Trident\/7.0/);    
     var rv=navigator.userAgent.indexOf("rv:11.0");  
     if (ieold) iev=new Number(RegExp.$1);
@@ -49,19 +49,30 @@ function csvExport(idTable, titre) {
     
     //Sauvegarder en CSV    
     if (iev != 0) { 
-    // internet explorer détecté        
+    // internet explorer détecté    
+        alert('iev !=0 internet explorer détecté') ; 
         myFrame.document.open("text/html", "replace");
         myFrame.document.write(tableString);
         myFrame.document.close();
         myFrame.focus();
         myFrame.document.execCommand('SaveAs', true, titrefichier);
     } 
-    else {         
-        csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(tableString);
-        $(event.target).attr({
-            'href': csvData,
-            'target': '_blank',
+    else {    
+        
+        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+        var is_chrome = navigator.userAgent.indexOf("Chrome") > -1; // Chrome se considère aussi comme un Safari ..
+        
+        if (is_safari && !is_chrome) alert('Navigateur Safari détecté ! Le fichier sera téléchargé sous le nom "Unknown". \n \n\
+                               Pour une meilleure utilisation, il faut le renommer avec \n\
+                               l\'extension .csv par exemple "' + titrefichier + '"' );
+        
+        csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(tableString);   
+        $(btn).attr({
+            'href': csvData ,
+            //'target': '_blank', // l'ouvrir dans un nouvel onglet
             'download': titrefichier
-        });
+      });
+      
     }
+    
 }
