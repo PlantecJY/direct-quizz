@@ -129,7 +129,7 @@ public class Connexion extends HttpServlet {
 
         }
         }catch(java.lang.NullPointerException e){
-           RequestDispatcher dispatch = request.getRequestDispatcher("formulaire_connexion.jsp");
+           RequestDispatcher dispatch = request.getRequestDispatcher("error.jsp");
            dispatch.forward(request, response);
        }
     }
