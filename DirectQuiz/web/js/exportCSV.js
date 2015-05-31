@@ -50,7 +50,6 @@ function csvExport(idTable, titre, btn) {
     //Sauvegarder en CSV    
     if (iev != 0) { 
     // internet explorer détecté    
-        alert('iev !=0 internet explorer détecté') ; 
         myFrame.document.open("text/html", "replace");
         myFrame.document.write(tableString);
         myFrame.document.close();
