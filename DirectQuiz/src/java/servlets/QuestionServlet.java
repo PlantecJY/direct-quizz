@@ -112,6 +112,7 @@ public class QuestionServlet extends HttpServlet {
                                 List<Theme> listeThemes = themeDao.listerThemes(utilisateur);
                                 request.setAttribute("listeThemes", listeThemes);     
                                 request.setAttribute("listeQuestions", questionDao.listerQuestions(utilisateur));
+                                request.setAttribute("idTheme","0");
                                 request.getRequestDispatcher(ACCES_RESTREINT + "/liste_questions.jsp").forward(request, response);
                             } else {
                                 themeChoisi = theme.getId();
@@ -201,6 +202,7 @@ public class QuestionServlet extends HttpServlet {
                         // test sur themeChoisi
                         if(themeChoisi == null) {
                             // toutes les questions
+                            request.setAttribute("idTheme","0");
                             request.setAttribute("listeQuestions", questionDao.listerQuestions(utilisateur)); 
                         } else {
                             // questions du thème choisi
@@ -212,6 +214,7 @@ public class QuestionServlet extends HttpServlet {
                         // test sur idTheme
                         if(idTheme.equals("0")){
                             // toutes les questions
+                            request.setAttribute("idTheme", "0");
                             request.setAttribute("listeQuestions", questionDao.listerQuestions(utilisateur)); 
                         } else {
                             // selon le thème
@@ -229,6 +232,7 @@ public class QuestionServlet extends HttpServlet {
                     // id
                     Integer idQuestion = Integer.parseInt(request.getParameter("id"));
                     // thème choisi ou thème par défaut (d'abord String car peut être null)
+                   
                     String idTheme = request.getParameter("idTheme");
                     request.setAttribute("idTheme", idTheme);
                     // suppression
@@ -237,8 +241,9 @@ public class QuestionServlet extends HttpServlet {
                     List<Theme> listeThemes = themeDao.listerThemes(utilisateur);
                     request.setAttribute("listeThemes", listeThemes);     
                     // affichage
-                    if(idTheme.equals("0") || idTheme == null){
+                    if(idTheme.equals("0") || idTheme.equals("")){
                         // toutes les questions
+                        request.setAttribute("idTheme","0");
                         request.setAttribute("listeQuestions", questionDao.listerQuestions(utilisateur)); 
                     } else {
                         // selon le thème
