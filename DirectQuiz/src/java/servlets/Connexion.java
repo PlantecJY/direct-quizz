@@ -67,6 +67,7 @@ public class Connexion extends HttpServlet {
                 ConnexionForm gestionFormulaire = new ConnexionForm(utilisateurDao);
                 // vérification des données de la requête / nouvel utilisateur
                 Utilisateur utilisateur = gestionFormulaire.connecterUtilisateur(request);
+                
                 // Récupération de la session depuis la requête
                 HttpSession session = request.getSession();
                 // si aucune erreur de validation n'a eu lieu, alors ajout du bean à la session :
@@ -86,12 +87,14 @@ public class Connexion extends HttpServlet {
                 // résultat du traitement et bean dans la requête
                 if (utilisateur != null && utilisateur.getGestionnaire()==1) {
                     deleteLateUsers();
+                    // si l'utilisateur est un administrateur, on active le controle des utilisateurs non valide
                 }
                 request.setAttribute(ATT_FORM, gestionFormulaire);
                 request.setAttribute(ATT_USER, utilisateur);
                 // affichage 
                 RequestDispatcher dispatch = request.getRequestDispatcher(page);
                 dispatch.forward(request, response);
+
             }
         } else if (action.equals("deconnexion")) {
             // connexion
@@ -136,6 +139,7 @@ public class Connexion extends HttpServlet {
                 Date inscr = utilisateur.getDateInscription();
                 Date actuelle = new Date();
                 System.out.println(utilisateur.getLogin());
+                //Si le temps est dépassé, on supprime les membres non valide
                 if ((inscr.getTime() + 172800000) < actuelle.getTime()) {
                     utilisateurDao.supprimerMembre(utilisateur.getId());
                 }

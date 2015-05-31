@@ -83,8 +83,7 @@ public class SequenceJeuLibre extends javax.servlet.http.HttpServlet {
                 this.request = request;
                 
                 // paramètres
-                String action = request.getParameter("action"); 
-
+                String action = request.getParameter("action");    
                 // fin de participation
                 if(action.equals("finir_participer")){
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
@@ -102,8 +101,7 @@ public class SequenceJeuLibre extends javax.servlet.http.HttpServlet {
                     // récupération de la question
                     Sequence sequence = sequenceDao.getById(id);
                     List<Question> questions = sequence.getQuestions();
-                    String texteQuestion = "";        
-                
+                    //String texteQuestion = "";        
                     // transmission seulement si pas la question 0 et si des valeurs ont été cochées
                     if(numeroQuestion != 1 && listeValeursTransmises != null){
 
@@ -120,49 +118,61 @@ public class SequenceJeuLibre extends javax.servlet.http.HttpServlet {
                     }
 
                     // numeroQuestion < ou = nombre de questions
+       
                     if(numeroQuestion <= questions.size()){               
 
                         // nouvelle question
+                        
                         Question question = questions.get(numeroQuestion-1);
                         // texte de la question
-                        texteQuestion = "<p><input type=\"hidden\" name=\"idQuestion\" value=\"" + question.getId() + "\"/>";
-                        texteQuestion = texteQuestion + "<h2 class=\"titre\">Question n°"+numeroQuestion+"</h2>";
-                        texteQuestion = texteQuestion + "<br><b>" + question.getTitre() + "</b><br>" + question.getEnonce();
-                        if(question.getImageRealName() != null){
-                            texteQuestion = texteQuestion + "<br><img src='./img/" + question.getImageRealName() + "' width='200px'><br>";
-                        }
-                        texteQuestion = texteQuestion +"<ul>";
-                        Integer nbReponses = 0;
-                        for(int j = 0; j < question.getReponses().size(); j++){
-                            nbReponses++;
-                            Reponse reponse = question.getReponses().get(j);
-                            int idReponse = reponse.getId();
-                            texteQuestion = texteQuestion + "<li class=\"reponse\"><table><tr><td><input type=\"checkbox\" class=\"checkq\"name=\"valeurs\" id=\""+idReponse+"\" value=\""+idReponse+"\"/></td><td><span id=\""+idReponse+"\" onclick=\"document.getElementById('"+idReponse+"').checked=!document.getElementById('"+idReponse+"').checked;\" class=\"checkboxtext\">"+reponse.getTexte()+"</span></td></tr></table></li>";
                         
-                        }
-                        texteQuestion = texteQuestion +"</ul>";
-                        texteQuestion = texteQuestion+"<br><input id=\"bouton\" type=\"submit\" value=\"Soumettre\" \"/></p>";
+                        //texteQuestion = "<p><input type=\"hidden\" name=\"idQuestion\" value=\"" + question.getId() + "\"/>";
+                        //texteQuestion = texteQuestion + "<h2 class=\"titre\">Question n°"+numeroQuestion+"</h2>";
+                        //texteQuestion = texteQuestion + "<br><b>" + question.getTitre() + "</b><br>" + question.getEnonce();
+                        //if(question.getImageRealName() != null){
+                          //  texteQuestion = texteQuestion + "<br><img src='./img/" + question.getImageRealName() + "' width='200px'><br>";
+                        //}
+                        //texteQuestion = texteQuestion +"<ul>";
+                        //Integer nbReponses = 0;
+                        //for(int j = 0; j < question.getReponses().size(); j++){
+                          //  nbReponses++;
+                            //Reponse reponse = question.getReponses().get(j);
+                            //int idReponse = reponse.getId();
+                            //texteQuestion = texteQuestion + "<li class=\"reponse\"><table><tr><td><input type=\"checkbox\" class=\"checkq\"name=\"valeurs\" id=\""+idReponse+"\" value=\""+idReponse+"\"/></td><td><span id=\""+idReponse+"\" onclick=\"document.getElementById('"+idReponse+"').checked=!document.getElementById('"+idReponse+"').checked;\" class=\"checkboxtext\">"+reponse.getTexte()+"</span></td></tr></table></li>";
                         
+                        //}
+                       // texteQuestion = texteQuestion +"</ul>";
+                        //texteQuestion = texteQuestion+"<br><input id=\"bouton\" type=\"submit\" value=\"Soumettre\" \"/></p>";
+                        
+                        //request.setAttribute("numeroquestion",numeroQuestion);
                         // incrémentation
-                        numeroQuestion++;
+                        
                         
                         // page de jeu
-                        request.setAttribute( "texteQuestion", texteQuestion );
+                        
+                        request.setAttribute("testimage", question.getImageRealName() != null);
+                        
+                        
+                        request.setAttribute("question",question);
+                       // request.setAttribute( "texteQuestion", texteQuestion );
+   
+                        //request.getRequestDispatcher("/jeu_libre.jsp").forward(request, response);   
+
+                    }
+                        // texte de réponse
+                        //texteQuestion = "<p>Merci de vous être prêtés à ce sondage !</p>";
+
+                        // page de jeu
+                       // request.setAttribute( "texteQuestion", texteQuestion );
+                        //request.setAttribute("numeroq", numeroQ);
+                        numeroQuestion++;
                         request.setAttribute( "identifiant", identifiant );
                         request.setAttribute( "idSequence", id );
                         request.setAttribute( "numeroQuestion", numeroQuestion );
-                        request.setAttribute( "idSequence", id );
-
+                        request.setAttribute( "idSequence", id );                      
+                        request.setAttribute("testquestion",(numeroQuestion-1) <= questions.size());
                         request.getRequestDispatcher("/jeu_libre.jsp").forward(request, response);   
-
-                    } else {
-                        // texte de réponse
-                        texteQuestion = "<p>Merci de vous être prêtés à ce sondage !</p>";
-
-                        // page de jeu
-                        request.setAttribute( "texteQuestion", texteQuestion );
-                        request.getRequestDispatcher("/jeu_libre.jsp").forward(request, response);   
-                    }
+                   // }
 
                 }
 
