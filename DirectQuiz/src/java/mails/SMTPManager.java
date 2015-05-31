@@ -45,7 +45,7 @@ public class SMTPManager {
      */
     public static void sendCreateConfirmation(String adresse, String name, String code) {
         String lien="http://localhost:8080/DirectQuiz/verif?name="+name+"&code="+code;
-        String mess = "Bonjour,\n\n" + "Votre compte sur l'application DirectQuizz est en cours de création.\nAfin de terminer le processus de création, veuillez suivre le lien suivant :\n\n"+lien+"\n\nA bientôt sur DirectQuizz : \n\n Note : Ce mail est un mail automatique, veuillez ne pas y répondre. Pour tout problème ou réclamations, adressez vous à un administrateur : mhaidir.ayoub@gmail.com";
+        String mess = "Bonjour,\n\n" + "Votre compte sur l'application DirectQuizz est en cours de création.\nAfin de terminer le processus de création, veuillez suivre le lien suivant :\n\n"+lien+"\n\nA bientôt sur DirectQuizz : \n\n Note : Ce mail est un mail automatique, veuillez ne pas y répondre. Pour tout problème ou réclamations, adressez vous à un administrateur : plantec@insa-toulouse.fr";
         String subject = "Création de votre compte sur DirectQuizz";
         SMTPManager.sendMail(adresse, mess,subject);
     }
