@@ -34,7 +34,10 @@ public class Connexion extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // récupération du paramètre
-        String action = request.getParameter("action");
+       try{
+           String action = request.getParameter("action");
+       
+
         // enregistrement
         if (action.equals("enregistrement")) {
             String data = request.getParameter("data");
@@ -125,6 +128,10 @@ public class Connexion extends HttpServlet {
             }
 
         }
+        }catch(java.lang.NullPointerException e){
+           RequestDispatcher dispatch = request.getRequestDispatcher("formulaire_connexion.jsp");
+           dispatch.forward(request, response);
+       }
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
